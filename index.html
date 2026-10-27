@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sono", sans-serif;
+      }
+
+      .pricing-container {
+        display: flex;
+        justify-content: space-between; /*The first and last element touch the sides of our height */
+        flex-direction: row; /*We could exclude this line as display:flex comes with row as the default*/
+        height: 100vh; /* Takes up 100% of the viewport height */
+        align-items: center; /*Aligns the items in the cross axis*/
+        gap: 2rem; /* Sets the spacing between flex items to 2rem */
+      }
+      /*My align-items initially wasn't working as expected in my Flexbox layout, because the pricing-container lacked height */
+
+
+
+      /*I went ahead and took an interesting approach.
+        Instead of using text-aling:center; I created a flex display and used align-items to center my content      
+      */
+      .pricing-plan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f2f2f2;
+        padding: 20px;
+        max-width: 400px; /* Limits the container's maximum width to 400px */
+        flex: 1; /* Allows the container to grow and share available space uniformly */
+        
+        
+      }
+
+      .plan-price {
+        font-size: 48px;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+
+      .plan-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .plan-button {
+        border-radius: 15px;
+        background-color: orangered;
+        color: white;
+        height: 45px;
+        width: 70px;
+      }
+
+      .plan-features > li {
+        margin-bottom: 10px;
+      }
+      
+      ul {
+        list-style: none; /* Removes the default bullets from the list items */
+      
+      }
+
+    
+      @media (max-width: 1250px) { /*applies these styles when the viewport width is 1250px or less.*/
+        .pricing-container {
+          flex-direction: column; /* Stacks the pricing plans vertically */
+          height: 100%; /* Sets the container height to 100% of its parent */
+        }
+      
+          
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">$9.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 10GB Storage</li>
+          <li>✅ 1 User</li>
+          <li>🚫 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">$19.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 50GB Storage</li>
+          <li>✅ 5 Users</li>
+          <li>✅ Phone &amp; Email Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">$49.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 100GB Storage</li>
+          <li>✅ 10 Users</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
+</html>
